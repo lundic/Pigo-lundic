@@ -20,11 +20,6 @@ class Pigo:
         while fwd() == -1:
             time.sleep(.1)
             print "Hey, I can't seem to get moving"
-        fwd()
-        while us_dist(15) > 40
-            print "Weeeeeeeeeeee"
-            time.sleep(.1)
-        stop
 
 tina = Pigo()
 tina.fwd()
