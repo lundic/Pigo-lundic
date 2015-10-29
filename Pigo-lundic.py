@@ -11,13 +11,13 @@ class Pigo:
 
     def stop(self):
         self.isMoving = False
-        while stop()!= 1:
+        while stop() == -1:
             time.sleep(.1)
             print "Ummm, yeah I can't stop!"
 
     def fwd(self):
         self.isMoving = True
-        while fwd() != 1:
+        while fwd() == -1:
             time.sleep(.1)
             print "Hey, I can't seem to get moving"
 
