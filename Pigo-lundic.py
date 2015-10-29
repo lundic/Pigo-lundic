@@ -28,7 +28,7 @@ class Pigo:
 
 tina = Pigo()
 tina.fwd()
-while us_dist(15) > 40
+while us_dist(15) > 40:
     print "Weeeeeeeeeeee"
     time.sleep(.1)
 tina.stop()
