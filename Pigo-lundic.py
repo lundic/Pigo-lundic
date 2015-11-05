@@ -35,7 +35,9 @@ class Pigo:
 
 tina = Pigo()
 tina.fwd()
-while us_dist(15) > 40:
-    print "Weeeeeeeeeeee"
+distance = us_dist(15)
+while distance > 40:
+    print distance
     time.sleep(.1)
+    distance = us_dist(15)
 tina.stop()
