@@ -23,6 +23,8 @@ class Pigo:
         self.isMoving = True
         while fwd() == None:
             time.sleep(.1)
+            if fwd() == 1:
+                break
             print "Hey, I can't seem to get moving"
 
     #######
