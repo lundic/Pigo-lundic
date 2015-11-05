@@ -21,7 +21,7 @@ class Pigo:
 
     def fwd(self):
         self.isMoving = True
-        while fwd() == -1:
+        while fwd() == None:
             time.sleep(.1)
             print "Hey, I can't seem to get moving"
 
