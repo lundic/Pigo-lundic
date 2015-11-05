@@ -15,17 +15,14 @@ class Pigo:
 
     def stop(self):
         self.isMoving = False
-        while stop() == None:
-            time.sleep(.1)
-            print "Ummm, yeah I can't stop!"
+        for x in range(3):
+            stop()
 
     def fwd(self):
         self.isMoving = True
-        while fwd() == None:
-            time.sleep(.1)
-            if fwd() == 1:
-                break
-            print "Hey, I can't seem to get moving"
+        for x in range(3):
+            fwd()
+        
 
     #######
     #######  ADVANCED METHODS
