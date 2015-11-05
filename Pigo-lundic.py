@@ -15,7 +15,7 @@ class Pigo:
 
     def stop(self):
         self.isMoving = False
-        while stop() == -1:
+        while stop() == None:
             time.sleep(.1)
             print "Ummm, yeah I can't stop!"
 
