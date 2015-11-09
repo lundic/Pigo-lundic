@@ -14,15 +14,22 @@ class Pigo:
         print "I'm a little robot car. beep beep."
 
     def stop(self):
-        self.isMoving = False
+        self.status["ismoving"] = False
+        print "Stoping."
         for x in range(3):
             stop()
 
     def fwd(self):
-        self.isMoving = True
+        self.status["ismoving"] = True
+        print "Let's go!"
         for x in range(3):
             fwd()
-        
+
+    def bwd(self):
+        self.status["ismoving"] = True
+        print "Backing up, beep beep beep."
+        for x in range(3):
+            bwd()        
 
     #######
     #######  ADVANCED METHODS
