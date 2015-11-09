@@ -50,7 +50,7 @@ class Pigo:
     #######  ADVANCED METHODS
     #######
 
-    def dance(self)
+    def dance(self):
         print "I just want to DANCE!"
         if self.keepGoing():
             self.circleRight()
