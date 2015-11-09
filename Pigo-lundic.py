@@ -34,7 +34,6 @@ class Pigo:
             bwd()        
             
     def keepGoing(self):
-        self.checkDist():
         if self.status['dist'] < STOP_DIST
             return False
         else:
@@ -43,6 +42,9 @@ class Pigo:
     def checkDist(self):
         self.status['dist'] = us_dist(15)
         print "I see something " + str(self.status['dist']) + "mm away"
+        if not self.keepGoing():
+            print "EMERGENCY STOP FROM THE CHECK DISTANCE METHOD!"
+            self.stop()
         
     #######
     #######  ADVANCED METHODS
