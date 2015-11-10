@@ -1,3 +1,7 @@
+#GOPUGO AUTONOMOUS, INSTANTIATED CLASS
+#GoPiGo API: http://www.dexterindustries.com/GoPiGo/programming/python-programming-for-the-raspberry-pi-gopigo/
+
+
 from gopigo import *
 import time
 STOP_DIST = 50
@@ -9,7 +13,7 @@ class Pigo:
     #######
 
     status = {'ismoving': False, 'servo': 90, 'leftspeed': 175,
-              'rigthspeed': 175, 'dist': 100}
+              'rigthspeed': 175, 'dist': 100, }
 
     def __init__(self):
         print "I'm a little robot car. beep beep."
@@ -32,20 +36,37 @@ class Pigo:
         print "Backing up, beep beep beep."
         for x in range(3):
             bwd()        
-            
+    #Check if conditions are safe to continue operating
     def keepGoing(self):
         if self.status['dist'] < STOP_DIST
+            print "Obstable detected. Stopping"
+            return False
+        elif volt() > 14 or volt() < 6:
+            print "Unsafe voltage detected: " + str(volt())
             return False
         else:
-            return Ture
-    
+            return True
+
     def checkDist(self):
         self.status['dist'] = us_dist(15)
         print "I see something " + str(self.status['dist']) + "mm away"
         if not self.keepGoing():
             print "EMERGENCY STOP FROM THE CHECK DISTANCE METHOD!"
             self.stop()
-        
+
+    def circleLeft(self):
+        for x in range(1):
+            left()
+        time.sleep(3)
+        self.stop()
+
+    def circleRight(self):
+        for x in range(1):
+            right()
+        time.sleep(3)
+        self.stop()
+
+
     #######
     #######  ADVANCED METHODS
     #######
