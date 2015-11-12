@@ -111,14 +111,7 @@ class Pigo:
 #######  MAIN APP STARTS HERE
 #######
 carl = Pigo()
-while carl.keepGoing():
-    carl.fwd()
-    distance = us_dist(15)
-    while distance > 40:
-        print distance
-        time.sleep(.1)
-        distance = us_dist(15)
-    carl.stop()
+carl.dance()
 
 carl.stop()
 
