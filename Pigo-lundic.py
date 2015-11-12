@@ -38,7 +38,7 @@ class Pigo:
             bwd()        
     #Check if conditions are safe to continue operating
     def keepGoing(self):
-        if self.status['dist'] < STOP_DIST
+        if self.status['dist'] < STOP_DIST:
             print "Obstable detected. Stopping"
             return False
         elif volt() > 14 or volt() < 6:
@@ -74,11 +74,11 @@ class Pigo:
         self.stop()
 
     def servoShake(self):
-        for x in range(40,60):
-            servo(x)
-            time.sleep(.1)]
-        #time.sleep(0.1)
-        self.stop
+        for x in range(2):
+            servo(40)
+            time.sleep(.1)
+            servo(60)
+        self.stop()
 
 
     def blink(self):
