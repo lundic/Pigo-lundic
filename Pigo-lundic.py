@@ -76,7 +76,7 @@ class Pigo:
     def servoShake(self):
         for x in range(40,60):
             servo(x)
-            time.sleep(.1)]
+            time.sleep(.1)
         #time.sleep(0.1)
         self.stop
 
