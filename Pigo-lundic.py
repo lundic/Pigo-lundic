@@ -91,6 +91,13 @@ class Pigo:
     #######
     #######  ADVANCED METHODS
     #######
+    
+    def safeDrive(self):
+        self.fwd()
+        while self.keepGoing():
+            self.checkDist()
+        self.stop()
+
     def dance(self):
         print "I just want to DANCE!"
         if self.keepGoing():
