@@ -38,7 +38,7 @@ class Pigo:
             bwd()        
     #Check if conditions are safe to continue operating
     def keepGoing(self):
-        if self.status['dist'] < STOP_DIST
+        if self.status['dist'] < STOP_DIST:
             print "Obstable detected. Stopping"
             return False
         elif volt() > 14 or volt() < 6:
