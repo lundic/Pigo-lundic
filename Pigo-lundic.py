@@ -82,7 +82,7 @@ class Pigo:
         self.stop()
 
     def blink(self):
-         for x in range(4):
+        for x in range(4):
             led_on(1)
             time.sleep(0.3)
             led_off(1)
