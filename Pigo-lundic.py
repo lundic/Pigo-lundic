@@ -56,18 +56,21 @@ class Pigo:
             self.stop()
 
     def circleLeft(self):
+        print "Circling left"
         for x in range(2):
             left()
         time.sleep(0.6)
         self.stop()
 
     def circleRight(self):
+        print "Circling right"
         for x in range(2):
             right()
         time.sleep(0.6)
         self.stop()
 
     def shuffle(self):
+        print "Time to shuffle"
         for x in range(2):
             left_rot()
             right_rot()
@@ -75,6 +78,7 @@ class Pigo:
         self.stop()
 
     def servoShake(self):
+        print "servo shaking"
         for x in range(2):
             servo(40)
             time.sleep(.1)
@@ -82,6 +86,7 @@ class Pigo:
         self.stop()
 
     def blink(self):
+        print "blinking"
         for x in range(4):
             led_on(1)
             time.sleep(0.3)
