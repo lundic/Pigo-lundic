@@ -56,13 +56,13 @@ class Pigo:
             self.stop()
 
     def circleLeft(self):
-        for x in range(1):
+        for x in range(2):
             left()
         time.sleep(0.6)
         self.stop()
 
     def circleRight(self):
-        for x in range(1):
+        for x in range(2):
             right()
         time.sleep(0.6)
         self.stop()
@@ -82,7 +82,7 @@ class Pigo:
         self.stop()
 
     def blink(self):
-        for x in range(4):
+         for x in range(4):
             led_on(1)
             time.sleep(0.3)
             led_off(1)
