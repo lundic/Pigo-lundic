@@ -36,7 +36,7 @@ class Pigo:
         print "Backing up, beep beep beep."
         for x in range(3):
             bwd()
-            
+
     #Check if conditions are safe to continue operating
     def keepGoing(self):
         if self.status['dist'] < STOP_DIST:
@@ -78,18 +78,11 @@ class Pigo:
         for x in range(2):
             servo(40)
             time.sleep(.1)
-            servo(60)
+            servo(120)
         self.stop()
-
-        for x in range(40,60):
-            servo(x)
-            time.sleep(.1)
-        #time.sleep(0.1)
-        self.stop()
-
 
     def blink(self):
-        for x in range(4):
+         for x in range(4):
             led_on(1)
             time.sleep(0.3)
             led_off(1)
@@ -104,6 +97,11 @@ class Pigo:
         while self.keepGoing():
             self.checkDist()
         self.stop()
+
+    def servoSweep(self):
+        for ang in range(20, 160, 5):
+            servo(ang)
+            time.sleep(.1)
 
     def dance(self):
         print "I just want to DANCE!"
