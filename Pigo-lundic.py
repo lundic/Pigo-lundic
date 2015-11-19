@@ -127,6 +127,7 @@ class Pigo:
                 self.shuffle()
                 self.servoShake()
                 self.blink()
+                self.blinkShake()
                 self.servoSweep()
         
 #######
