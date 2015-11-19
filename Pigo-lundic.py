@@ -79,7 +79,7 @@ class Pigo:
 
     def servoShake(self):
         print "servo shaking"
-        for x in range(2):
+        for x in range(3):
             servo(40)
             time.sleep(1)
             servo(120)
