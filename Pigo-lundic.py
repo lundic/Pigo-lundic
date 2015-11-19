@@ -92,6 +92,15 @@ class Pigo:
             time.sleep(0.3)
             led_off(1)
         self.stop()
+        
+    def blinkShake(self):
+        print "Blinking and shaking!!"
+        a = 20
+        for x in range(3):
+            led_on(1)
+            servo(a + 30)
+            time.sleep(1)
+            led_off(1)
 
     #######
     #######  ADVANCED METHODS
