@@ -101,6 +101,7 @@ class Pigo:
             servo(a + 30)
             time.sleep(1)
             led_off(1)
+        self.stop()
 
     #######
     #######  ADVANCED METHODS
