@@ -98,9 +98,10 @@ class Pigo:
         a = 20
         for x in range(3):
             led_on(1)
-            servo(a + 30)
-            time.sleep(1)
+            servo(a)
+            time.sleep(.5)
             led_off(1)
+            a += 30
         self.stop()
 
     #######
