@@ -110,12 +110,14 @@ class Pigo:
 
     def dance(self):
         print "I just want to DANCE!"
-        if self.keepGoing():
-            self.circleRight()
-            self.circleLeft()
-            self.shuffle()
-            self.servoShake()
-            self.blink()
+        for x in range(2):
+            if self.keepGoing():
+                self.circleRight()
+                self.circleLeft()
+                self.shuffle()
+                self.servoShake()
+                self.blink()
+                self.servoSweep()
         
 #######
 #######  MAIN APP STARTS HERE
