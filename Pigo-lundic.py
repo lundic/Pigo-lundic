@@ -95,6 +95,20 @@ class Pigo:
             disable_servo()
             return False
 
+    def scan():
+        while stop() == 0:
+            print "Having trouble stopping"
+            time.sleep(.1)
+        allclear = True
+        if not quickcheck():
+            print "Starting a full scan."
+            for ang in range(10, 160, 5):
+                servo(ang)
+                time.sleep(.07)
+                sweep[ang] = us_dist(15)
+                print "[Angle:", ang, "--", sweep[ang], "cm]"
+                if sweep[ang] < fardistance and ang > 65 and ang < 95:
+                    allclear = False
         
 #######
 #######  MAIN APP STARTS HERE
