@@ -6,6 +6,10 @@ from gopigo import *
 import time
 STOP_DIST = 50
 
+sweep = [None] * 160
+cornerdistance = 10
+fardistance = 90
+
 class Pigo:
 
     #######
@@ -55,39 +59,6 @@ class Pigo:
             print "EMERGENCY STOP FROM THE CHECK DISTANCE METHOD!"
             self.stop()
 
-    def circleLeft(self):
-        for x in range(1):
-            left()
-        time.sleep(0.6)
-        self.stop()
-
-    def circleRight(self):
-        for x in range(1):
-            right()
-        time.sleep(0.6)
-        self.stop()
-
-    def shuffle(self):
-        for x in range(2):
-            left_rot()
-            right_rot()
-        time.sleep(0.5)
-        self.stop()
-
-    def servoShake(self):
-        for x in range(2):
-            servo(40)
-            time.sleep(.1)
-            servo(120)
-        self.stop()
-
-    def blink(self):
-         for x in range(4):
-            led_on(1)
-            time.sleep(0.3)
-            led_off(1)
-        self.stop()
-
     #######
     #######  ADVANCED METHODS
     #######
@@ -103,20 +74,31 @@ class Pigo:
             servo(ang)
             time.sleep(.1)
 
-    def dance(self):
-        print "I just want to DANCE!"
-        if self.keepGoing():
-            self.circleRight()
-            self.circleLeft()
-            self.shuffle()
-            self.servoShake()
-            self.blink()
+    def quickcheck(self):
+        enable_servo()
+        servo(70)
+        time.sleep(.20)
+        check1 = us_dist(15)
+        servo(90)
+        time.sleep(.1)
+        check2 = us_dist(15)
+        servo(110)
+        time.sleep(.1)
+        check3 = us_dist(15)
+        if check1 > fardistance and check2 > fardistance and check3 > fardistance:
+            print "Quick check looks good."
+            disable_servo()
+            return True
+        else:
+            print "Quick check failed. [70|",check1,"cm.][80|",check2,"cm.][90|",check3,"cm.]"
+            disable_servo()
+            return False
+
         
 #######
 #######  MAIN APP STARTS HERE
 #######
 carl = Pigo()
-carl.dance()
-
+carl.quickcheck()
 carl.stop()
 
