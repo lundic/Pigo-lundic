@@ -91,7 +91,7 @@ class Pigo:
             disable_servo()
             return True
         else:
-            print "Quick check failed. [70|",check1,"cm.][80|",check2,"cm.][90|",check3,"cm.]"
+            print "Quick check failed. [70|",check1,"cm.][90|",check2,"cm.][110|",check3,"cm.]"
             disable_servo()
             return False
 
@@ -109,6 +109,9 @@ class Pigo:
                 print "[Angle:", ang, "--", sweep[ang], "cm]"
                 if sweep[ang] < fardistance and ang > 65 and ang < 95:
                     allclear = False
+
+    def isTherePath(self):
+
         
 #######
 #######  MAIN APP STARTS HERE
@@ -116,4 +119,3 @@ class Pigo:
 carl = Pigo()
 carl.quickcheck()
 carl.stop()
-
