@@ -117,4 +117,5 @@ class Pigo:
 #######
 carl = Pigo()
 carl.quickcheck()
+carl.scan()
 carl.stop()
