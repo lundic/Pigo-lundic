@@ -95,7 +95,7 @@ class Pigo:
             disable_servo()
             return False
 
-    def scan():
+    def scan(self):
         while stop() == 0:
             print "Having trouble stopping"
             time.sleep(.1)
