@@ -99,7 +99,7 @@ class Pigo:
         while stop() == 0:
             print "Having trouble stopping"
             time.sleep(.1)
-        if not quickcheck():
+        if not self.quickcheck():
             print "Starting a full scan."
             for ang in range(10, 160, 5):
                 servo(ang)
