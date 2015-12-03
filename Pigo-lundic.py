@@ -110,7 +110,6 @@ class Pigo:
                 if sweep[ang] < fardistance and ang > 65 and ang < 95:
                     allclear = False
 
-    def isTherePath(self):
 
 
 #######
