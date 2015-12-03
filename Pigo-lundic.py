@@ -112,10 +112,10 @@ class Pigo:
 
     def isTherePath(self):
 
-        
+
 #######
 #######  MAIN APP STARTS HERE
 #######
 carl = Pigo()
-carl.quickcheck()
+carl.scan()
 carl.stop()
