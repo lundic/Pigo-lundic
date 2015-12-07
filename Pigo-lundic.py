@@ -7,8 +7,7 @@ import time
 STOP_DIST = 50
 
 sweep = [None] * 160
-cornerdistance = 10
-fardistance = 90
+
 
 class Pigo:
 
@@ -18,6 +17,7 @@ class Pigo:
 
     status = {'ismoving': False, 'servo': 90, 'leftspeed': 175,
               'rigthspeed': 175, 'dist': 100, }
+    MIN_DIST = 90
 
     def __init__(self):
         print "I'm a little robot car. beep beep."
@@ -69,12 +69,6 @@ class Pigo:
             self.checkDist()
         self.stop()
 
-    def servoSweep(self):
-        print "Sweeping now!"
-        for ang in range(20, 160, 5):
-            servo(ang)
-            time.sleep(.1)
-
     def quickcheck(self):
         enable_servo()
         servo(70)
@@ -86,7 +80,7 @@ class Pigo:
         servo(110)
         time.sleep(.1)
         check3 = us_dist(15)
-        if check1 > fardistance and check2 > fardistance and check3 > fardistance:
+        if check1 > self.MIN_DIST and check2 > self.MIN_DIST and check3 > self.MIN_DIST:
             print "Quick check looks good."
             disable_servo()
             return True
@@ -95,27 +89,36 @@ class Pigo:
             disable_servo()
             return False
 
-    def scan():
+    def scan(self):
         while stop() == 0:
             print "Having trouble stopping"
             time.sleep(.1)
-        allclear = True
-        if not quickcheck():
+        if self.quickcheck():
             print "Starting a full scan."
             for ang in range(10, 160, 5):
                 servo(ang)
                 time.sleep(.07)
                 sweep[ang] = us_dist(15)
                 print "[Angle:", ang, "--", sweep[ang], "cm]"
-                if sweep[ang] < fardistance and ang > 65 and ang < 95:
-                    allclear = False
 
-    def isTherePath(self):
-
+    def findaPath(self):
+        count = 0
+        for ang in range(10, 160, 2):
+            if sweep[ang] > self.MIN_DIST:
+                count += 1   #count how many angles have a clear path ahead
+            else:
+                count = 0   #resets the counter to 0 if a obstacle is detected, we only want counts in a row
+            if count >= 10:   #10 counts means 20 degrees (since I count by 2s in the loop)
+                return True
+        return False
 
 #######
-#######  MAIN APP STARTS HERE
+####### MAIN APP STARTS HERE
 #######
+
 carl = Pigo()
-carl.scan()
 carl.stop()
+
+carl.scan()
+print carl.findaPath()
+
