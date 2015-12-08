@@ -118,7 +118,7 @@ class Pigo:
             if self.vision[ang] > STOP_DIST:
                 counter += 1
             else:
-                counter option[optindex] = ang - 10= 0
+                counter = 0
             if counter == (20/self.STEPPER):
                 print "We've found an option at angle " + str(ang - 10)
 
