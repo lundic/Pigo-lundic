@@ -121,12 +121,12 @@ class Pigo:
                 counter = 0
             if counter == (20/self.STEPPER):
                 print "We've found an option at angle " + str(ang - 10)
-
                 counter = 0
                 optindex += 1
         if self.status['wentleft']:
             print "I went left last time. Seeing if I have a right turn option"
             for choice in option:
+                print choice
                 if choice < 90:
                     self.status['wentleft'] = False #switch this for next time
                     return choice
@@ -136,7 +136,7 @@ class Pigo:
                 if choice > 90:
                     self.status['wentleft'] = True
                     return choice
-        if option[0]: #let's make sure there's something in there
+        if option[0]:
             print "I couldn't turn the direction I wanted. Going to use angle " + str(option[0])
             return option[0]
         print "If I print this line I couldn't find an angle. How'd I get this far? I give up."
