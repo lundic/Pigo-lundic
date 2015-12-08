@@ -55,9 +55,7 @@ class Pigo:
     def checkDist(self):
         self.status['dist'] = us_dist(15)
         print "I see something " + str(self.status['dist']) + "mm away"
-        if not self.keepGoing():
-            print "EMERGENCY STOP FROM THE CHECK DISTANCE METHOD!"
-            self.stop()
+
 
     #######
     #######  ADVANCED METHODS
@@ -85,15 +83,12 @@ class Pigo:
             disable_servo()
             return True
         else:
-            print "Quick check failed. [70|",check1,"cm.][90|",check2,"cm.][110|",check3,"cm.]"
+            print "Quick check failed. [70|"+ str(check1) + "cm.][90|" + str(check2) + "cm.][110|" + str(check3) +"cm.]"
             disable_servo()
             return False
 
     def scan(self):
-        while stop() == 0:
-            print "Having trouble stopping"
-            time.sleep(.1)
-        if self.quickcheck():
+        if not self.quickcheck():
             print "Starting a full scan."
             for ang in range(10, 160, 5):
                 servo(ang)
@@ -111,6 +106,7 @@ class Pigo:
             if count >= 10:   #10 counts means 20 degrees (since I count by 2s in the loop)
                 return True
         return False
+
 
 #######
 ####### MAIN APP STARTS HERE
