@@ -16,7 +16,7 @@ class Pigo:
     #######
 
     status = {'ismoving': False, 'servo': 90, 'leftspeed': 175,
-              'rigthspeed': 175, 'dist': 100, }
+              'rigthspeed': 175, 'dist': 100, "wentleft": True}
     MIN_DIST = 90
     vision = [None] * 180
     STEPPER = 5
@@ -135,7 +135,7 @@ class Pigo:
                 if choice > 90:
                     self.status['wentleft'] = True
                     return choice
-        print "I couldn't turn the direction I wanted. Goint to use angle " + str(option[0])
+        print "I couldn't turn the direction I wanted. Going to use angle " + str(option[0])
         if option[0]: #let's make sure there's something in there
             return option[0]
         print "If I print this line I couldn't find an angle. How'd I get this far?"
