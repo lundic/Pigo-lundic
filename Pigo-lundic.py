@@ -115,7 +115,7 @@ class Pigo:
         option = []  #we're going to fill this array with the angles of open paths
         optindex = 0  #this starts at 0 and will increase every time we find an option
         for ang in range(20, 160, self.STEPPER):
-            if self.vision[ang] > self.MIN_DIST:
+            if sweep[ang] > self.MIN_DIST:
                 counter += 1
             else:
                 counter = 0
