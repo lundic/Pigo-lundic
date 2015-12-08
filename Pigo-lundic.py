@@ -98,7 +98,7 @@ class Pigo:
 
     def findaPath(self):
         count = 0
-        for ang in range(10, 160, 2):
+        for ang in range(10, 160, 5):
             if sweep[ang] > self.MIN_DIST:
                 count += 1   #count how many angles have a clear path ahead
             else:
@@ -106,7 +106,6 @@ class Pigo:
             if count >= 10:   #10 counts means 20 degrees (since I count by 2s in the loop)
                 return True
         return False
-
 
 #######
 ####### MAIN APP STARTS HERE
