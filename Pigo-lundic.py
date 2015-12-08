@@ -105,7 +105,8 @@ class Pigo:
                 count += 1   #count how many angles have a clear path ahead
             else:
                 count = 0   #resets the counter to 0 if a obstacle is detected, we only want counts in a row
-            if count >= 10:   #10 counts means 20 degrees (since I count by 2s in the loop)
+            if count >= (20/self.STEPPER):   #10 counts means 20 degrees (since I count by 2s in the loop)
+                print "The findaPath method has got an angle at " + str(ang - 10)
                 return True
         return False
 
@@ -117,10 +118,10 @@ class Pigo:
             if self.vision[ang] > STOP_DIST:
                 counter += 1
             else:
-                counter = 0
+                counter option[optindex] = ang - 10= 0
             if counter == (20/self.STEPPER):
                 print "We've found an option at angle " + str(ang - 10)
-                option[optindex] = ang - 10
+
                 counter = 0
                 optindex += 1
         if self.status['wentleft']:
@@ -135,10 +136,10 @@ class Pigo:
                 if choice > 90:
                     self.status['wentleft'] = True
                     return choice
-        print "I couldn't turn the direction I wanted. Going to use angle " + str(option[0])
         if option[0]: #let's make sure there's something in there
+            print "I couldn't turn the direction I wanted. Going to use angle " + str(option[0])
             return option[0]
-        print "If I print this line I couldn't find an angle. How'd I get this far?"
+        print "If I print this line I couldn't find an angle. How'd I get this far? I give up."
         return 90
 
     def turnTo(self, angle):
