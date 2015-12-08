@@ -18,6 +18,7 @@ class Pigo:
     status = {'ismoving': False, 'servo': 90, 'leftspeed': 175,
               'rigthspeed': 175, 'dist': 100, }
     MIN_DIST = 90
+    vision = [None] * 180
     STEPPER = 5
 
     def __init__(self):
