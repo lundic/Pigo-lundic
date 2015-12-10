@@ -146,14 +146,15 @@ class Pigo:
     def turnTo(self, angle):
         if angle < 90:
             print "Turning right"
-            self.right_rot()
+            right_rot()
             time.sleep(turntime)
             self.stop()
         else:
             print "Turning left"
-            self.left_rot()
+            left_rot()
             time.sleep(turntime)
             self.stop()
+
 
 #######
 ####### MAIN APP STARTS HERE
