@@ -163,6 +163,6 @@ carl = Pigo()
 carl.stop()
 
 carl.scan()
-print carl.findaPath()
-print carl.findAngle()
+carl.turnTo(input())
+
 
