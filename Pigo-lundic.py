@@ -112,7 +112,7 @@ class Pigo:
 
     def findAngle(self):
         counter = 0
-        option = [] * 10  #we're going to fill this array with the angles of open paths
+        option = [] * 50  #we're going to fill this array with the angles of open paths
         optindex = 0  #this starts at 0 and will increase every time we find an option
         for ang in range(20, 160, self.STEPPER):
             if sweep[ang] > self.MIN_DIST:
